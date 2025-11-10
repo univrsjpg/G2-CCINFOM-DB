@@ -1,2 +1,4 @@
-# G5-CCINFOM-DB
-<br> GROUP 3 - Chai, Gab, Coby, Ash
+# FOOD_STOCK CLASS
+<br> Ash
+<br> Need to link with other tables
+<br> Figuring out how to make it more user-intuitive
