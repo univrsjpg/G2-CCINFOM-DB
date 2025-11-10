@@ -46,9 +46,9 @@ CREATE TABLE IF NOT EXISTS `food_stock` (
   `food_id` int NOT NULL AUTO_INCREMENT,
   `food_name` varchar(255) NOT NULL,
   `date_expiry` date NOT NULL,
+  `date_bought` date NOT NULL,
   `cost` double NOT NULL,
   `caloric_count` double NOT NULL,
-  `date_bought` date NOT NULL,
   `stock_qty` double NOT NULL,
   PRIMARY KEY (`food_id`)
 ) 
