@@ -6,6 +6,9 @@ import model.MainMenuModel1;
 import view.FoodStockView;
 import model.FoodStockModel;
 
+import view.AddPetView;
+import model.AddPetModel;
+
 import view.MainMenuView2;
 
 import javax.swing.JButton;
@@ -61,7 +64,13 @@ public class MainMenuController1 implements ActionListener {
 
 	// Allows the user to add a pet.
 	private void addPet() {
-		System.out.println("Adding a pet");
+		view.dispose();
+
+		AddPetView addPView = new AddPetView();
+		AddPetModel addPModel = new AddPetModel();
+		new AddPetController(addPView, addPModel);
+
+		addPView.setVisible(true);
 	}
 
 	// Allows the user to check the food stock.
