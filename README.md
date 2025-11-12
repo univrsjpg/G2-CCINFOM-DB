@@ -1,4 +1,6 @@
 # FOOD_STOCK CLASS
 <br> Coby
-<br> For the most part complete.
-<br> TO-DO: add remove pet
+<br> TO DO:
+<br> Add pet
+<br> Remove pet
+<br> View pet info
