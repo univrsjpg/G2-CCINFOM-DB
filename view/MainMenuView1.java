@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MainMenuView1 extends JFrame {
 	private JPanel petButtonPanel;
-	private JButton viewStockButton, addPetButton;
+	private JButton viewStockButton, addPetButton, removePetButton;
 
 	// Sets up the view for users.
 	public MainMenuView1() {
@@ -24,6 +24,7 @@ public class MainMenuView1 extends JFrame {
 
 		viewStockButton = new JButton("View Stock");
 		addPetButton = new JButton("Add New Pet");
+		removePetButton = new JButton("Remove a Pet");
 
 		setSize(800, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,9 +37,10 @@ public class MainMenuView1 extends JFrame {
 		petPanel.add(petButtonPanel, BorderLayout.CENTER);
 		petPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 
-		JPanel actionPanel = new JPanel(new GridLayout(1, 2, 10, 10));
+		JPanel actionPanel = new JPanel(new GridLayout(1, 3, 10, 10));
 		actionPanel.add(viewStockButton);
 		actionPanel.add(addPetButton);
+		actionPanel.add(removePetButton);
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, petPanel, actionPanel);
 		splitPane.setResizeWeight(0.85);
@@ -61,9 +63,11 @@ public class MainMenuView1 extends JFrame {
 
 		viewStockButton.addActionListener(l);
 		addPetButton.addActionListener(l);
+		removePetButton.addActionListener(l);
 
 		viewStockButton.setActionCommand("ViewStock");
 		addPetButton.setActionCommand("AddPet");
+		removePetButton.setActionCommand("RemovePet");
 	}
 
 	// Updates the list of pets and their names.

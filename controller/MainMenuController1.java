@@ -36,10 +36,13 @@ public class MainMenuController1 implements ActionListener {
 			int petId = (int) source.getClientProperty("pet_id");
 			String petName = (String) source.getClientProperty("pet_name");
 			selectPet(petId, petName);
-		} else {
+		}
+
+		else {
 			switch (command) {
 				case "AddPet" -> addPet();
 				case "ViewStock" -> viewStock();
+				case "RemovePet" -> removePet();
 			}
 		}
 	}
@@ -78,6 +81,11 @@ public class MainMenuController1 implements ActionListener {
 		*/
 
 		stockView.setVisible(true);
+	}
+
+	// Allows the user to remove a pet.
+	private void removePet() {
+		System.out.println("Removing a pet");
 	}
 
 	// Updates the list of pets.

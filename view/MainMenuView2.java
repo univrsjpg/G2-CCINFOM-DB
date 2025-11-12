@@ -41,7 +41,7 @@ public class MainMenuView2 extends JFrame {
 		JPanel mainPanel = new JPanel(new BorderLayout());
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(50, 70, 50, 70));
 		mainPanel.add(buttonPanel, BorderLayout.CENTER);
-		mainPanel.add(backPanels,BorderLayout.SOUTH);
+		mainPanel.add(backPanel, BorderLayout.SOUTH);
 		add(mainPanel);
 	}
 
