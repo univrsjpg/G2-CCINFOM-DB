@@ -29,30 +29,30 @@ public class AddPetView extends JFrame {
 		speciesField = new JTextField(15);
 		ageField = new JTextField(3);
 
+		nameField.setPreferredSize(new Dimension(200, 25));
+		speciesField.setPreferredSize(new Dimension(200, 25));
+		ageField.setPreferredSize(new Dimension(85, 25));
+
         setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 	}
 
 	private void layoutComponents() {
-		JPanel namePanel = new JPanel(new GridLayout(1, 2, 10, 10));
+		JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		namePanel.add(new JLabel("Name:"));
 		namePanel.add(nameField);
 
-		JPanel speciesPanel = new JPanel(new GridLayout(1, 2, 10, 10));
+		JPanel speciesPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		speciesPanel.add(new JLabel("Species:"));
 		speciesPanel.add(speciesField);
 
-		JPanel genderPanel = new JPanel(new GridLayout(2, 1, 5, 5));
+		JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		genderPanel.add(new JLabel("Gender:"));
+		genderPanel.add(femaleButton);
+		genderPanel.add(maleButton);
 
-		JPanel genderOptionsPanel = new JPanel(new GridLayout(1, 2, 10, 10));
-		genderOptionsPanel.add(femaleButton);
-		genderOptionsPanel.add(maleButton);
-
-		genderPanel.add(genderOptionsPanel);
-
-		JPanel agePanel = new JPanel(new GridLayout(1, 2, 10, 10));
+		JPanel agePanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
 		agePanel.add(new JLabel("Age:"));
 		agePanel.add(ageField);
 
@@ -60,7 +60,8 @@ public class AddPetView extends JFrame {
 		bottomPanel.add(addButton);
 		bottomPanel.add(backButton);
 
-		JPanel inputPanel = new JPanel(new GridLayout(4, 1, 10, 10));
+		JPanel inputPanel = new JPanel();
+		inputPanel.setLayout(new BoxLayout(inputPanel, BoxLayout.Y_AXIS));
 		inputPanel.add(namePanel);
 		inputPanel.add(speciesPanel);
 		inputPanel.add(genderPanel);
@@ -89,9 +90,15 @@ public class AddPetView extends JFrame {
 		JOptionPane.showMessageDialog(this, msg);
 	}
 
-	public void refreshInput() {
-		nameField.setText("");
-		speciesField.setText("");
-		ageField.setText("");
+	public void updateGender(String gender) {
+		if (gender.equals("Female")) {
+			femaleButton.setBackground(Color.LIGHT_GRAY);
+			maleButton.setBackground(null);
+		}
+
+		else if (gender.equals("Male")) {
+			maleButton.setBackground(Color.LIGHT_GRAY);
+			femaleButton.setBackground(null);
+		}
 	}
 }

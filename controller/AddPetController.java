@@ -23,11 +23,17 @@ public class AddPetController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		switch (e.getActionCommand()){
-			case "Add" -> addPet();
-			case "Back" -> goBack();
-			case "Female" -> inptGender("Female");
-			case "Male" -> inptGender("Male");
+		String command = e.getActionCommand();
+
+		switch (command){
+			case "Add": addPet(); break;
+			case "Back": goBack(); break;
+
+			case "Female":
+			case "Male":
+				this.gender = command;
+				view.updateGender(command);
+				break;
 		}
 	}
 
@@ -44,7 +50,15 @@ public class AddPetController implements ActionListener {
 
 			model.addPet(name, species, gender, age);
 			view.showMessage(String.format("%s has joined Pet Tracker!", name));
-			refresh();
+			
+			view.dispose();
+
+			MainMenuView1 menu1View = new MainMenuView1();
+			MainMenuModel1 menu1Model = new MainMenuModel1();
+			new MainMenuController1(menu1View, menu1Model);
+
+			menu1View.setVisible(true);
+
 		}
 
 		catch (Exception ex) {
@@ -61,9 +75,5 @@ public class AddPetController implements ActionListener {
 		new MainMenuController1(menu1View, menu1Model);
 
 		menu1View.setVisible(true);
-	}
-
-	private void refresh() {
-		view.refreshInput();
 	}
 }
