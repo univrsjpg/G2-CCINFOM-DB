@@ -36,7 +36,14 @@ public class PetInfoController implements ActionListener {
 		String newValue = editData[1];
 
 		model.updatePetField(petId, field, newValue);
-		refresh();
+
+		view.dispose();
+
+		PetInfoView infoView = new PetInfoView();
+		PetInfoModel infoModel = new PetInfoModel();
+		new PetInfoController(infoView, infoModel, petId);
+
+		infoView.setVisible(true);
 	}
 
 	private void goBack() {
