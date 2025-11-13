@@ -5,6 +5,9 @@ import view.MainMenuView2;
 import view.MainMenuView1;
 import model.MainMenuModel1;
 
+import view.PetInfoView;
+import model.PetInfoModel;
+
 import java.awt.event.*;
 
 
@@ -42,7 +45,13 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows user to view pet info
 	private void viewPetInfo(int pet_id) {
-		System.out.println("Viewing pet info");
+		view.dispose();
+
+		PetInfoView infoView = new PetInfoView();
+		PetInfoModel infoModel = new petInfoModel();
+		new PetInfoController(infoView, infoModel, pet_id);
+
+		infoView.setVisible(true);
 	}
 
 	// Allows user to record pet intake
