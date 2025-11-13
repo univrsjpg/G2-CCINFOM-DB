@@ -1,2 +1,2 @@
-# G5-CCINFOM-DB
-<br> GROUP 3 - Chai, Gab, Coby, Ash
+# G2-CCINFOM-DB
+<br> GROUP 2 - Chai, Gab, Coby, Ash
