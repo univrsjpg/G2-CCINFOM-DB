@@ -34,28 +34,37 @@ public class PetInfoModel {
 		List<String> allowed = List.of("pet_name", "species", "gender", "age");
 
 		if (!allowed.contains(fieldName)) {
-			return String.format("Invalid field: " + fieldName);
+			return "Invalid field: " + fieldName;
 		}
 
-		if (fieldName == "gender" && (newValue.toLowerCase().trim() != "female" || newValue.toLowerCase().trim() != "male")){
-			return "Invalid input!";
+		if (fieldName.equals("gender")) {
+			String lower = newValue.toLowerCase().trim();
+			if (!lower.equals("female") && !lower.equals("male")) {
+				return "Invalid input!";
+			}
 		}
 
-		if (fieldName == "pet_name" || fieldName == "species" || fieldName == "gender"){
-			newValue = "\"" + newValue + "\"";
+		if (fieldName.equals("pet_name") || fieldName.equals("species") || fieldName.equals("gender")) {
+			newValue = "'" + newValue + "'";
 		}
 
 		String qry = "UPDATE pet SET " + fieldName + " = " + newValue + " WHERE pet_id = " + id;
 
 		try (Connection conn = DBConnector.getConnection();
-			 Statement stmt = conn.createStatement();
-			 ResultSet rs = stmt.executeQuery(qry)) {
+			 Statement stmt = conn.createStatement()) {
 
-			rs.next();
-			return String.format("Pet has been edited!");
+			int rows = stmt.executeUpdate(qry);
+
+			if (rows > 0) {
+				return "Pet has been edited!";
+			} else {
+				return "Error";
+			}
 		}
-		catch(Exception e) {
-			return "Error!";
+
+		catch (SQLException e) {
+			e.printStackTrace();
+			return "Database error: " + e.getMessage();
 		}
 	}
 

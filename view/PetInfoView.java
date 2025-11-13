@@ -76,6 +76,9 @@ public class PetInfoView extends JFrame {
 		this.weight = pet.getWeight();
 
 		layoutComponents();
+
+		revalidate();
+		repaint();
 	}
 
 	public String[] promptEditField() {
