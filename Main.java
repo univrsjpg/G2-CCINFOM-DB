@@ -2,7 +2,7 @@ import controller.FoodStockController;
 import model.FoodStockModel;
 import view.FoodStockView;
 
-// How to compile javac -cp ".;lib/mysql-connector-j-9.5.0.jar" Main.java controller/*.java model/*.java view/*.
+// How to compile  javac -cp ".;lib/mysql-connector-j-9.5.0.jar" Main.java util\DBConnector.java controller\FoodStockController.java model\FoodStockModel.java view\FoodStockView.java view\FoodAllergenDialog.java
 // Run java -cp ".;lib/mysql-connector-j-9.5.0.jar" Main
 
 public class Main {
@@ -15,3 +15,4 @@ public class Main {
         });
     }
 }
+
