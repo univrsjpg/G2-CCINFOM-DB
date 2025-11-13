@@ -1,10 +1,9 @@
-pakcage controller;
+package controller;
 
 import view.PetInfoView;
 import model.PetInfoModel;
 
 import view.MainMenuView2;
-import model.MainMenuModel2;
 
 import java.awt.event.*;
 
@@ -16,13 +15,14 @@ public class PetInfoController implements ActionListener {
 	public PetInfoController(PetInfoView view, PetInfoModel model, int petId) {
 		this.view = view;
 		this.model = model;
+		this.petId = petId;
 		this.view.addActionListener(this);
 		refresh();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		switch (e.GetActionCommand()) {
+		switch (e.getActionCommand()) {
 			case "Edit" -> editPet();
 			case "Back" -> goBack();
 		}
@@ -35,15 +35,14 @@ public class PetInfoController implements ActionListener {
 	private void goBack() {
 		view.dispose();
 
-		MainMenuView2 menu2View = new MainMenuView2();
-		MainMenuModel2 menu2Model = new MainMenuModel2();
-		new MainMenuController2(menu2View, menu2Model);
+		MainMenuView2 menu2View = new MainMenuView2(model.getPetInfo(petId).getName());
+		new MainMenuController2(menu2View, petId);
 
 		menu2View.setVisible(true);
 	}
 
 	private void refresh(){
-		PetInfoModel.Pet pet = model.getPetInfo(pet_id);
+		PetInfoModel.Pet pet = model.getPetInfo(petId);
 		view.refresh(pet);
 	}
 }

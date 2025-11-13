@@ -48,7 +48,7 @@ public class MainMenuController2 implements ActionListener {
 		view.dispose();
 
 		PetInfoView infoView = new PetInfoView();
-		PetInfoModel infoModel = new petInfoModel();
+		PetInfoModel infoModel = new PetInfoModel();
 		new PetInfoController(infoView, infoModel, pet_id);
 
 		infoView.setVisible(true);

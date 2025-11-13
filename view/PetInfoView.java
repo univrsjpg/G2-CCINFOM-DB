@@ -1,6 +1,6 @@
 package view;
 
-import PetInfoModel;
+import model.PetInfoModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class PetInfoView extends JFrame {
 
 	private String name, species, gender;
 	private int age;
-	private float weight;
+	private double weight;
 
 	public PetInfoView() {
 		super("Checking pet information.");
@@ -33,7 +33,7 @@ public class PetInfoView extends JFrame {
 		infoPanel.add(new JLabel(String.format("Species: %s", species)));
 		infoPanel.add(new JLabel(String.format("Gender: %s", gender)));
 		infoPanel.add(new JLabel(String.format("Age: %d", age)));
-		infoPanel.add(new JLabel(String.format("Current weight: %f")));
+		infoPanel.add(new JLabel(String.format("Current weight: %f", weight)));
 		infoPanel.add(new JLabel(String.format("%s is a %d year old %fkg %s %s!", name, age, weight, gender, species)));
 
 		JPanel topPanel = new JPanel(new BorderLayout());
@@ -59,7 +59,7 @@ public class PetInfoView extends JFrame {
 		backButton.setActionCommand("Back");
 	}
 
-	public void refresh(PetInfoView.Pet pet) {
+	public void refresh(PetInfoModel.Pet pet) {
 		this.name = pet.getName();
 		this.species = pet.getSpecies();
 		this.gender = pet.getGender();
