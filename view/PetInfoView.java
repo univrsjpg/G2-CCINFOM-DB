@@ -77,4 +77,34 @@ public class PetInfoView extends JFrame {
 
 		layoutComponents();
 	}
+
+	public String[] promptEditField() {
+		String[] fields = {"pet_name", "species", "gender", "age"};
+
+		JPanel panel = new JPanel(new GridLayout(2, 1, 5, 5));
+		JComboBox<String> fieldDropdown = new JComboBox<>(fields);
+		JTextField newValueField = new JTextField(10);
+
+		panel.add(new JLabel("Select field to edit: "));
+		panel.add(fieldDropdown);
+		panel.add(new JLabel("Enter new value:"));
+		panel.add(newValueField);
+
+		int result = JOptionPane.showConfirmDialog(
+            this, panel, "Edit Food Field", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+			if (result == JOptionPane.OK_OPTION) {
+			String field = (String) fieldDropdown.getSelectedItem();
+			String newValue = newValueField.getText().trim();
+
+			if (newValue.isEmpty()) return null;
+			return new String[]{field, newValue};
+		}
+		return null;
+		
+	}
+
+	public void showMessage(String msg) {
+		JOptionPane.showMessageDialog(this, msg);
+	}
 }

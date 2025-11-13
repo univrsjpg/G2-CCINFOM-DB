@@ -29,7 +29,14 @@ public class PetInfoController implements ActionListener {
 	}
 
 	private void editPet() {
-		System.out.println("edakdfamcurgjs");
+		String[] editData = view.promptEditField();
+		if (editData == null) return;
+
+		String field = editData[0];
+		String newValue = editData[1];
+
+		model.updatePetField(petId, field, newValue);
+		refresh();
 	}
 
 	private void goBack() {

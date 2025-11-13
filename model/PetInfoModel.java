@@ -30,6 +30,35 @@ public class PetInfoModel {
 		}
 	}
 
+	public String updatePetField(int id, String fieldName, String newValue) {
+		List<String> allowed = List.of("pet_name", "species", "gender", "age");
+
+		if (!allowed.contains(fieldName)) {
+			return String.format("Invalid field: " + fieldName);
+		}
+
+		if (fieldName == "gender" && (newValue.toLowerCase().trim() != "female" || newValue.toLowerCase().trim() != "male")){
+			return "Invalid input!";
+		}
+
+		if (fieldName == "pet_name" || fieldName == "species" || fieldName == "gender"){
+			newValue = "\"" + newValue + "\"";
+		}
+
+		String qry = "UPDATE pet SET " + fieldName + " = " + newValue + " WHERE pet_id = " + id;
+
+		try (Connection conn = DBConnector.getConnection();
+			 Statement stmt = conn.createStatement();
+			 ResultSet rs = stmt.executeQuery(qry)) {
+
+			rs.next();
+			return String.format("Pet has been edited!");
+		}
+		catch(Exception e) {
+			return "Error!";
+		}
+	}
+
 	public static class Pet {
 		private int id;
 		private String name;
