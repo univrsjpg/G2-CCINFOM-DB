@@ -9,6 +9,9 @@ import model.FoodStockModel;
 import view.AddPetView;
 import model.AddPetModel;
 
+import view.RemovePetView;
+import model.RemovePetModel;
+
 import view.MainMenuView2;
 
 import javax.swing.JButton;
@@ -94,7 +97,13 @@ public class MainMenuController1 implements ActionListener {
 
 	// Allows the user to remove a pet.
 	private void removePet() {
-		System.out.println("Removing a pet");
+		view.dispose();
+
+		RemovePetView removeView = new RemovePetView();
+		RemovePetModel removeModel = new RemovePetModel();
+		new RemovePetController(removeView, removeModel);
+
+		removeView.setVisible(true);
 	}
 
 	// Updates the list of pets.
