@@ -29,15 +29,24 @@ public class PetInfoView extends JFrame {
 	}
 
 	private void layoutComponents() {
-		infoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 5));
-		infoPanel.add(new JLabel(String.format("Species: %s", species)));
-		infoPanel.add(new JLabel(String.format("Gender: %s", gender)));
-		infoPanel.add(new JLabel(String.format("Age: %d", age)));
-		infoPanel.add(new JLabel(String.format("Current weight: %f", weight)));
-		infoPanel.add(new JLabel(String.format("%s is a %d year old %fkg %s %s!", name, age, weight, gender, species)));
+		infoPanel = new JPanel(new GridLayout(7, 1, 2, 2));
+		infoPanel.add(new JPanel());
+		infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("Species: %s", species)+"</span></html>"));
+		infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("Gender: %s", gender)+"</span></html>"));
+		infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("Age: %d", age)+"</span></html>"));
+
+		if (weight == 0.0f) {
+			infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+"No recorded weight!"+"</span></html>"));
+			infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("%s is a %d year old %s %s!", name, age, gender, species)+"</span></html>"));
+		} else {
+			infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("Current weight: %.2f", weight)+"</span></html>"));
+			infoPanel.add(new JLabel("<html><span style='font-size:15px'>"+String.format("%s is a %d year old %.2fkg %s %s!", name, age, weight, gender, species)+"</span></html>"));
+		}
+
+		infoPanel.add(new JPanel());
 
 		JPanel topPanel = new JPanel(new BorderLayout());
-		topPanel.add(new JLabel(String.format("%s's info!", name)));
+		topPanel.add(new JLabel("<html><span style='font-size:20px'>"+String.format("%s's info!", name)+"</span></html>"));
 
 		JPanel bottomPanel = new JPanel(new GridLayout(1, 2, 5, 5));
 		bottomPanel.add(backButton);

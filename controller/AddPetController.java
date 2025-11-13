@@ -51,13 +51,7 @@ public class AddPetController implements ActionListener {
 			model.addPet(name, species, gender, age);
 			view.showMessage(String.format("%s has joined Pet Tracker!", name));
 			
-			view.dispose();
-
-			MainMenuView1 menu1View = new MainMenuView1();
-			MainMenuModel1 menu1Model = new MainMenuModel1();
-			new MainMenuController1(menu1View, menu1Model);
-
-			menu1View.setVisible(true);
+			goBack();
 
 		}
 
