@@ -53,8 +53,8 @@ public class MainMenuView1 extends JFrame {
 			}
 		};
 
-		headerPanel.setOpaque(false);  // important so rounded shape shows properly
-		headerPanel.setBackground(new Color(255, 255, 245)); // header color
+		headerPanel.setOpaque(false);
+		headerPanel.setBackground(new Color(255, 255, 245));
 		headerPanel.setLayout(new BorderLayout());
 
 		JLabel titleLabel = new JLabel("<html><div style='font-size: 30px; font-weight: bold; text-align: center;'>" +
@@ -72,11 +72,7 @@ public class MainMenuView1 extends JFrame {
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setVerticalAlignment(SwingConstants.CENTER);
 
-		//ImageIcon corgiBread = new ImageIcon(getClass().getResource("/icons/Sticker - CorgiBread.png"));
-		//JLabel corgiLabel = new JLabel(corgiBread);
-
 		headerPanel.add(titleLabel);
-		//headerPanel.add(corgiLabel);
 		headerPanel.setBorder(BorderFactory.createEmptyBorder(2, 30, 2, 30));
 
 		JPanel headerWrapper = new JPanel();
