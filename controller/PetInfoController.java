@@ -4,6 +4,7 @@ import view.PetInfoView;
 import model.PetInfoModel;
 
 import view.MainMenuView2;
+import model.MainMenuModel2;
 
 import java.awt.event.*;
 
@@ -49,8 +50,9 @@ public class PetInfoController implements ActionListener {
 	private void goBack() {
 		view.dispose();
 
-		MainMenuView2 menu2View = new MainMenuView2(model.getPetInfo(petId).getName());
-		new MainMenuController2(menu2View, petId);
+		MainMenuView2 menu2View = new MainMenuView2();
+		MainMenuModel2 menu2Model = new MainMenuModel2();
+		new MainMenuController2(menu2View, menu2Model, petId);
 
 		menu2View.setVisible(true);
 	}

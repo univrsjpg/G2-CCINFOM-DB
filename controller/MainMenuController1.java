@@ -13,6 +13,7 @@ import view.RemovePetView;
 import model.RemovePetModel;
 
 import view.MainMenuView2;
+import model.MainMenuModel2;
 
 import javax.swing.JButton;
 import java.awt.event.*;
@@ -59,8 +60,9 @@ public class MainMenuController1 implements ActionListener {
 
 		view.dispose();
 
-		MainMenuView2 menu2View = new MainMenuView2(pet_name);
-		new MainMenuController2 (menu2View, petId);
+		MainMenuView2 menu2View = new MainMenuView2();
+		MainMenuModel2 menu2Model = new MainMenuModel2();
+		new MainMenuController2 (menu2View, menu2Model, petId);
 
 		menu2View.setVisible(true);
 	}

@@ -23,6 +23,12 @@ public class MainMenuView2 extends JFrame {
 		layoutComponents();
 	}
 
+	// Sets pet_name and changes layout in accordance
+	public void setPetName(String pet_name) {
+		this.pet_name = pet_name;
+		layoutComponents();
+	}
+
 	// Initializes components
 	private void initComponents() {
 		viewPetInfo = new JButton("View Info");

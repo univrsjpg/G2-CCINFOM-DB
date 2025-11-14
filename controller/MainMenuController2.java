@@ -1,6 +1,7 @@
 package controller;
 
 import view.MainMenuView2;
+import model.MainMenuModel2;
 
 import view.MainMenuView1;
 import model.MainMenuModel1;
@@ -18,9 +19,10 @@ public class MainMenuController2 implements ActionListener {
 	private final int pet_id;
 
 	// Initializes MainMenu2 by setting view and model and getting the pet_id.
-	public MainMenuController2 (MainMenuView2 view, int pet_id) {
+	public MainMenuController2 (MainMenuView2 view, MainMenuModel2 model, int pet_id) {
 		this.view = view;
 		this.pet_id = pet_id;
+		view.setPetName(model.getPetName(pet_id));
 		this.view.addActionListener(this);
 	}
 
