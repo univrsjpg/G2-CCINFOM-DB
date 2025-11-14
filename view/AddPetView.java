@@ -81,7 +81,6 @@ public class AddPetView extends JFrame {
 
 		JPanel headerWrapper = new JPanel();
 		headerWrapper.add(headerPanel);
-		headerWrapper.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 		headerWrapper.setBackground(new Color(163,198,181));
 
 
