@@ -49,8 +49,16 @@ public class FoodAllergenDialog extends JDialog implements ActionListener {
         linkedList = new JList<>(linkedModel);
 
         addButton = new JButton("Add →");
+        addButton.setBackground(new Color(32,117,111));
+        addButton.setForeground(new Color(255, 255, 245));
+
         removeButton = new JButton("← Remove");
+        removeButton.setBackground(new Color(200,40,33));
+        removeButton.setForeground(new Color(255, 255, 245));
+
         closeButton = new JButton("Close");
+        closeButton.setBackground(new Color (207, 172, 72));
+        closeButton.setForeground(new Color(255, 255, 245));
         // Adds action listeners
         addButton.setActionCommand("Add");
         removeButton.setActionCommand("Remove");
