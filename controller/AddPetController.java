@@ -37,10 +37,6 @@ public class AddPetController implements ActionListener {
 		}
 	}
 
-	private void inptGender(String gndr) {
-		this.gender = gndr;
-	}
-
 	private void addPet() {
 		try {
 			String name = view.getNameInput();

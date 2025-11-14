@@ -30,44 +30,6 @@ public class PetInfoModel {
 		}
 	}
 
-	public String updatePetField(int id, String fieldName, String newValue) {
-		List<String> allowed = List.of("pet_name", "species", "gender", "age");
-
-		if (!allowed.contains(fieldName)) {
-			return "Invalid field: " + fieldName;
-		}
-
-		if (fieldName.equals("gender")) {
-			String lower = newValue.toLowerCase().trim();
-			if (!lower.equals("female") && !lower.equals("male")) {
-				return "Invalid input!";
-			}
-		}
-
-		if (fieldName.equals("pet_name") || fieldName.equals("species") || fieldName.equals("gender")) {
-			newValue = "'" + newValue + "'";
-		}
-
-		String qry = "UPDATE pet SET " + fieldName + " = " + newValue + " WHERE pet_id = " + id;
-
-		try (Connection conn = DBConnector.getConnection();
-			 Statement stmt = conn.createStatement()) {
-
-			int rows = stmt.executeUpdate(qry);
-
-			if (rows > 0) {
-				return "Pet has been edited!";
-			} else {
-				return "Error";
-			}
-		}
-
-		catch (SQLException e) {
-			e.printStackTrace();
-			return "Database error: " + e.getMessage();
-		}
-	}
-
 	public static class Pet {
 		private int id;
 		private String name;

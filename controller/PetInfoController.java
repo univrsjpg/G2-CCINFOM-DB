@@ -6,6 +6,9 @@ import model.PetInfoModel;
 import view.MainMenuView2;
 import model.MainMenuModel2;
 
+import view.EditPetView;
+import model.EditPetModel;
+
 import java.awt.event.*;
 
 public class PetInfoController implements ActionListener {
@@ -18,7 +21,8 @@ public class PetInfoController implements ActionListener {
 		this.model = model;
 		this.petId = petId;
 		this.view.addActionListener(this);
-		refresh();
+		PetInfoModel.Pet pet = model.getPetInfo(petId);
+		view.refresh(pet);
 	}
 
 	@Override
@@ -30,21 +34,11 @@ public class PetInfoController implements ActionListener {
 	}
 
 	private void editPet() {
-		String[] editData = view.promptEditField();
-		if (editData == null) return;
+		EditPetView editView = new EditPetView();
+		EditPetModel editModel = new EditPetModel();
+		new EditPetController(editView, editModel, petId);
 
-		String field = editData[0];
-		String newValue = editData[1];
-
-		model.updatePetField(petId, field, newValue);
-
-		view.dispose();
-
-		PetInfoView infoView = new PetInfoView();
-		PetInfoModel infoModel = new PetInfoModel();
-		new PetInfoController(infoView, infoModel, petId);
-
-		infoView.setVisible(true);
+		editView.setVisible(true);
 	}
 
 	private void goBack() {
@@ -55,10 +49,5 @@ public class PetInfoController implements ActionListener {
 		new MainMenuController2(menu2View, menu2Model, petId);
 
 		menu2View.setVisible(true);
-	}
-
-	private void refresh(){
-		PetInfoModel.Pet pet = model.getPetInfo(petId);
-		view.refresh(pet);
 	}
 }
