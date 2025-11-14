@@ -1,4 +1,5 @@
-# FOOD_STOCK CLASS
+# MAIN MENU & PET STUFF
 <br> Coby
-<br> DONE: Add pet, Remove pet, View pet info
-<br> TO DO: Edit pet info
+<br> FULLY FUNCTIONAL ON ALL SIDES.
+<BR>
+<br> CURRENTLY WORKING ON: Making it pretty
