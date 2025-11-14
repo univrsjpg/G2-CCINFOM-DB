@@ -71,7 +71,12 @@ public class MainMenuView1 extends JFrame {
 								   "</div></html>");
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		titleLabel.setVerticalAlignment(SwingConstants.CENTER);
-		headerPanel.add(titleLabel, BorderLayout.CENTER);
+
+		//ImageIcon corgiBread = new ImageIcon(getClass().getResource("/icons/Sticker - CorgiBread.png"));
+		//JLabel corgiLabel = new JLabel(corgiBread);
+
+		headerPanel.add(titleLabel);
+		//headerPanel.add(corgiLabel);
 		headerPanel.setBorder(BorderFactory.createEmptyBorder(2, 30, 2, 30));
 
 		JPanel headerWrapper = new JPanel();
