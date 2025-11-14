@@ -14,6 +14,7 @@ public class FoodStockView extends JFrame {
 
     private JButton addButton, removeButton, refreshButton, editButton, allergenButton;
     private JTextField nameField, expiryField, boughtField, costField, calField, qtyField;
+    private JLabel totalCostLabel;
 
     public FoodStockView() {
         super("Food Stock Manager");
@@ -46,10 +47,24 @@ public class FoodStockView extends JFrame {
         foodList = new JList<>(foodListModel);
 
         addButton = new JButton("Add Product");
+        addButton.setBackground(new Color(32,117,111));
+        addButton.setForeground(new Color(255, 255, 245));
+
         removeButton = new JButton("Remove");
+        removeButton.setBackground(new Color(200,40,33));
+        removeButton.setForeground(new Color(255, 255, 245));
+
         refreshButton = new JButton("Refresh");
+        refreshButton.setBackground(new Color (207, 172, 72));
+        refreshButton.setForeground(new Color(255, 255, 245));
+
         editButton = new JButton("Edit"); 
+        editButton.setBackground(new Color(32,117,111));
+        editButton.setForeground(new Color(255, 255, 245));
+
         allergenButton = new JButton("View Allergens");
+        allergenButton.setBackground(new Color(200,40,33));
+        allergenButton.setForeground(new Color(255, 255, 245));
 
         nameField = new JTextField(10);
         expiryField = new JTextField(10);
@@ -57,31 +72,62 @@ public class FoodStockView extends JFrame {
         calField = new JTextField(5);
         boughtField = new JTextField(10);
         qtyField = new JTextField(5);
+        totalCostLabel = new JLabel("Total Cost: 0.00");
 
-        setSize(800, 500);
+        setSize(1500, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
 
     private void layoutComponents() {
         setLayout(new BorderLayout());
+        setBackground(new Color(163,198,181));
 
         JPanel inputPanel = new JPanel(new GridLayout(2, 6, 5, 5));
         inputPanel.setBorder(BorderFactory.createTitledBorder("Food Details"));
-        inputPanel.add(new JLabel("Name"));
+        inputPanel.setBackground(new Color(255,255,245));
+
+        Color green = new Color(207, 233, 213); 
+        JLabel nameLbl = new JLabel("Name");
+        nameLbl.setOpaque(true);
+        nameLbl.setBackground(green);
+
+        JLabel expiryLbl = new JLabel("Expiry (YYYY-MM-DD)");
+        expiryLbl.setOpaque(true);
+        expiryLbl.setBackground(green);
+
+        JLabel boughtLbl = new JLabel("Bought Date (YYYY-MM-DD)");
+        boughtLbl.setOpaque(true);
+        boughtLbl.setBackground(green);
+
+        JLabel costLbl = new JLabel("Cost (PHP)");
+        costLbl.setOpaque(true);
+        costLbl.setBackground(green);
+
+        JLabel calLbl = new JLabel("Calories (kCal)");
+        calLbl.setOpaque(true);
+        calLbl.setBackground(green);
+
+        JLabel qtyLbl = new JLabel("Quantity (grams)");
+        qtyLbl.setOpaque(true);
+        qtyLbl.setBackground(green);
+        
+        inputPanel.add(nameLbl);
         inputPanel.add(nameField);
-        inputPanel.add(new JLabel("Expiry (YYYY-MM-DD)"));
+        inputPanel.add(expiryLbl);
         inputPanel.add(expiryField);
-        inputPanel.add(new JLabel("Bought Date (YYYY-MM-DD)"));
+        inputPanel.add(boughtLbl);
         inputPanel.add(boughtField);
-        inputPanel.add(new JLabel("Cost (PHP)"));
+        inputPanel.add(costLbl);
         inputPanel.add(costField);
-        inputPanel.add(new JLabel("Calories (kCal)"));
+        inputPanel.add(calLbl);
         inputPanel.add(calField);
-        inputPanel.add(new JLabel("Quantity (grams)"));
+        inputPanel.add(qtyLbl);
         inputPanel.add(qtyField);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(255,255,245));
+
         buttonPanel.add(addButton);
         buttonPanel.add(removeButton);
         buttonPanel.add(refreshButton);
@@ -90,12 +136,27 @@ public class FoodStockView extends JFrame {
 
         JPanel listPanel = new JPanel(new BorderLayout());
         listPanel.setBorder(BorderFactory.createTitledBorder("Current Food Stock"));
+        listPanel.setBackground(new Color(255,255,245));
+        foodList.setBackground(new Color(255,255,245));  
         foodList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        listPanel.add(new JScrollPane(foodList), BorderLayout.CENTER);
+        JScrollPane scroll = new JScrollPane(foodList);
+        scroll.getViewport().setBackground(new Color(255,255,245));
+
+        listPanel.add(scroll, BorderLayout.CENTER);
+
+        JPanel bottomPanel = new JPanel(new BorderLayout());
+        bottomPanel.setBackground(new Color(163,198,181));
+
+        bottomPanel.add(buttonPanel, BorderLayout.WEST);
+        JPanel costPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        costPanel.setBackground(new Color(255,255,245));
+
+        costPanel.add(totalCostLabel);
+        bottomPanel.add(costPanel, BorderLayout.EAST);
 
         add(inputPanel, BorderLayout.NORTH);
         add(listPanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(bottomPanel, BorderLayout.SOUTH);
     }
 
     public void showMessage(String msg) {
@@ -106,6 +167,10 @@ public class FoodStockView extends JFrame {
         foodListModel.clear();
         for (String food : foods)
             foodListModel.addElement(food);
+    }
+
+    public void setTotalCost(double cost) {
+        totalCostLabel.setText(String.format("Total Cost: %.2f", cost));
     }
 
     public void addActionListener(ActionListener l) {
