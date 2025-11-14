@@ -194,5 +194,23 @@ public class FoodStockModel {
             ps.executeUpdate();
         }
     }
+    /**
+     * Get the sum of costs
+     * @return
+     */
+    public double getTotalCost() {
+        String sql = "SELECT SUM(cost) AS total FROM food_stock";
+        try (Connection conn = DBConnector.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery()) {
 
+            if (rs.next()) {
+                return rs.getDouble("total");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
 }
