@@ -154,6 +154,8 @@ public class FoodStockController implements ActionListener {
     private void refreshList() {
         List<String> foods = model.listFoods();
         view.updateFoodList(foods);
+        double totalCost = model.getTotalCost();
+        view.setTotalCost(totalCost);
     }
 
     private void handleBack() {
