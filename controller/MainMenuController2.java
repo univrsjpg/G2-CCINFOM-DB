@@ -42,7 +42,7 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows the user to view pet weight
 	private void viewWeight(int pet_id) {
-		System.out.println("Viewing weight");
+		
 	}
 
 	// Allows user to view pet info
@@ -58,12 +58,10 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows user to record pet intake
 	private void recordIntake(int pet_id) {
-		System.out.println("recordIntake");
 	}
 
 	// Allows user to view allergen info
 	private void viewAllergies(int pet_id) {
-		System.out.println("viewAllergies");
 	}
 
 	// Allows user to go back to main menu1

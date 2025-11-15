@@ -88,15 +88,15 @@ public class PetInfoView extends JFrame {
 		infoPanel = new JPanel(new GridLayout(5, 1, 2, 2));
 		infoPanel.add(new JLabel("<html><h2><span style='color: #ad903b'>Species: </span>"+species+"</h2></html>"));
 		infoPanel.add(new JLabel("<html><h2><span style='color: #20756F'>Gender: </span>"+gender+"</h2></html>"));
-		infoPanel.add(new JLabel("<html><h2><span style='color: #C82821'>Age: </span>"+age+"</h2></html>"));
+		infoPanel.add(new JLabel("<html><h2><span style='color: #C82821'>Age: </span>"+age+" years old</h2></html>"));
 
 		if (weight == 0.0f) {
 			infoPanel.add(new JLabel("<html><h2><span style='color: #ad903b'>"+"No recorded weight!"+"</h2></html>"));
-			infoPanel.add(new JLabel("<html><h2><span style='color: #C82821'>"+name+"</span> is a <span style='color: #ad903b'>"+age+"</span> year old <span style='color: #20756F'>"+gender.toLowerCase()+"</span> <span style='color: #C82821'>"+species+"</span>!</h2></html>"));
+			infoPanel.add(new JLabel("<html><h2><span style='color: #C82821'>"+name+"</span> is a <span style='color: #ad903b'>"+age+"</span> year old <span style='color: #20756F'>"+gender.toLowerCase()+"</span> <span style='color: #C82821'>"+species.toLowerCase()+"</span>!</h2></html>"));
 		} else {
 			infoPanel.add(new JLabel("<html><h2><span style='color: #ad903b'>Current weight: </span>"+String.format("%.2f", weight)+"</h2></html>"));
 			infoPanel.add(new JLabel("<html><h2><span style='color: #C82821'>"+name+"</span> is a <span style='color: #ad903b'>"+age+"</span> year old <span style='color: #20756F'>"+String.format("%.2f", weight)+"kg</span>"
-										+ " <span style='color: #C82821'>"+gender.toLowerCase()+"</span> <span syle='color: #ad903b'>"+species+"</span>!</h2></html>"));
+										+ " <span style='color: #C82821'>"+gender.toLowerCase()+"</span> <span syle='color: #ad903b'>"+species.toLowerCase()+"</span>!</h2></html>"));
 		}
 		infoPanel.setBorder(BorderFactory.createEmptyBorder(0,20,0,0));
 

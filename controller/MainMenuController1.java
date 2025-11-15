@@ -56,8 +56,6 @@ public class MainMenuController1 implements ActionListener {
 
 	// Allows the user to select a pet.
 	private void selectPet(int petId, String pet_name) {
-		System.out.println("Selected pet: " + petId);
-
 		view.dispose();
 
 		MainMenuView2 menu2View = new MainMenuView2();
@@ -80,8 +78,6 @@ public class MainMenuController1 implements ActionListener {
 
 	// Allows the user to check the food stock.
 	private void viewStock() {
-		System.out.println("Checking stock");
-
 		view.dispose();
 
 		FoodStockView stockView = new FoodStockView();
