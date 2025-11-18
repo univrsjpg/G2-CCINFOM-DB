@@ -6,6 +6,22 @@ import java.sql.*;
 
 public class AllergenModel
 {
+    public boolean allergenExists(String desc) {
+        String sql = "SELECT COUNT(*) FROM allergen WHERE description = ?";
+        try (Connection cn = util.DBConnector.getConnection();
+             PreparedStatement pstmt = cn.prepareStatement(sql)) {
+
+            pstmt.setString(1, desc);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public void addAllergen(String desc)
     {
         String sql = "INSERT INTO allergen (description) VALUES (?)";
@@ -67,4 +83,28 @@ public class AllergenModel
         return result;
     }
 
+    // link allergens table to food_stock
+    public List<String> linkAllergensToFoodStock(int allergen_id) {
+        List<String> list = new ArrayList<>();
+
+        String sql = "SELECT fs.food_name " +
+                "FROM food_stock fs " +
+                "JOIN food_allergen fa ON fs.food_id = fa.food_id " +
+                "WHERE fa.allergen_id = ?";
+
+        try (Connection cn = util.DBConnector.getConnection();
+             PreparedStatement pstmt = cn.prepareStatement(sql)) {
+
+            pstmt.setInt(1, allergen_id);
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    list.add(rs.getString("food_name"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

@@ -10,10 +10,12 @@ public class AllergenView extends JFrame {
     private JTable allergenTable;
     private DefaultTableModel tableModel;
     private JTextField descTextField;
-    private JButton addButton, deleteButton, editButton;
+    private JButton addButton, deleteButton, editButton, viewLinksButton;
+    private JTextArea linkedFoods;
+
 
     public AllergenView() {
-        super("Allergen Management");
+        super("Allergens");
         initializeComponents();
         layoutComponents();
         setVisible(true);
@@ -37,10 +39,15 @@ public class AllergenView extends JFrame {
         addButton.setActionCommand("Add");
         deleteButton.setActionCommand("Delete");
         editButton.setActionCommand("Edit");
+        viewLinksButton = new JButton("View Food with Allergen");
 
-        setSize(500, 350);
+        linkedFoods = new JTextArea(5, 30);
+        linkedFoods.setEditable(false);
+
+        setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        getContentPane().setBackground(new Color(170, 202, 185));
 
         getRootPane().setDefaultButton(addButton);
     }
@@ -49,24 +56,99 @@ public class AllergenView extends JFrame {
         addButton.addActionListener(al);
         deleteButton.addActionListener(al);
         editButton.addActionListener(al);
+        viewLinksButton.addActionListener(al);
+        viewLinksButton.setActionCommand("View Food with Allergen");
+
     }
 
     public void layoutComponents() {
         setLayout(new BorderLayout(10, 10));
 
-        JScrollPane tableScrollPane = new JScrollPane(allergenTable);
-        add(tableScrollPane, BorderLayout.CENTER);
+        // left table: allergen id & desc
+        JPanel allergenPanel = new JPanel(new BorderLayout());
+        allergenPanel.setBorder(BorderFactory.createTitledBorder("Allergens"));
 
-        JPanel inputPanel = new JPanel(new FlowLayout());
-        inputPanel.add(new JLabel("Allergen Description:"));
-        inputPanel.add(descTextField);
-        add(inputPanel, BorderLayout.NORTH);
+        Color ivory = new Color(255, 255, 245);
+        allergenTable.setBackground(ivory);
+        allergenTable.setOpaque(true);
 
+        JScrollPane allergenScroll = new JScrollPane(allergenTable);
+        allergenScroll.getViewport().setBackground(ivory);
+        allergenScroll.setBackground(ivory);
+
+        allergenPanel.setBackground(new Color(170, 202, 185));
+        allergenPanel.add(allergenScroll, BorderLayout.CENTER);
+        add(allergenPanel, BorderLayout.CENTER);
+
+        // top panel: input fields and buttons
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.setBackground(new Color(170, 202, 185));
+
+        //input description
+        JPanel descPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        descPanel.setBackground(new Color(170, 202, 185));
+        JLabel descLabel = new JLabel("Allergen Description:");
+        descLabel.setForeground(Color.WHITE);
+        descLabel.setFont(new Font("Arial", Font.BOLD, 15));
+        descPanel.add(descLabel);
+        descPanel.add(descTextField);
+
+        // viewing linked food stock button
+        JPanel viewPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        viewPanel.add(viewLinksButton);
+        viewPanel.setBackground(new Color(170, 202, 185));
+        viewLinksButton.setBackground(new Color(207, 171, 72));
+        viewLinksButton.setForeground(Color.WHITE);
+        // mac stuff; remove setopaque and setBorderPainted for ALL buttons if not on mac bc mac
+        // ignores jbutton bg color, not sure sa windows tho
+        viewLinksButton.setOpaque(true);
+        viewLinksButton.setBorderPainted(false);
+
+        // add/edit/delete buttons
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(addButton);
-        buttonPanel.add(deleteButton);
         buttonPanel.add(editButton);
-        add(buttonPanel, BorderLayout.SOUTH);
+        buttonPanel.add(deleteButton);
+
+        buttonPanel.setBackground(new Color(170, 202, 185));
+        addButton.setBackground(new Color(32, 117, 111));
+        addButton.setForeground(Color.WHITE);
+        // remove
+        addButton.setOpaque(true);
+        addButton.setBorderPainted(false);
+
+        editButton.setBackground(new Color(207, 171, 72));
+        editButton.setForeground(Color.WHITE);
+        // remove
+        editButton.setOpaque(true);
+        editButton.setBorderPainted(false);
+
+        deleteButton.setBackground(new Color(200, 41, 33));
+        deleteButton.setForeground(Color.WHITE);
+        // remove
+        deleteButton.setOpaque(true);
+        deleteButton.setBorderPainted(false);
+
+        topPanel.add(descPanel);
+        topPanel.add(viewPanel);
+        topPanel.add(buttonPanel);
+
+        add(topPanel, BorderLayout.NORTH);
+
+        // linked food stock
+        JPanel foodPanel = new JPanel(new BorderLayout());
+        foodPanel.setBorder(BorderFactory.createTitledBorder("Food stock"));
+        foodPanel.add(new JScrollPane(linkedFoods), BorderLayout.CENTER);
+        foodPanel.setBackground(new Color(170, 202, 185));
+        linkedFoods.setBackground(new Color(255, 255, 245));
+
+        add(foodPanel, BorderLayout.EAST);
+    }
+
+
+    public void displayLinkedFoods(String text) {
+        linkedFoods.setText(text);
     }
 
     public int getSelectedAllergenId() {

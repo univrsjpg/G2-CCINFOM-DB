@@ -29,6 +29,9 @@ public class AllergenController implements ActionListener {
             case "Edit":
                 editAllergen();
                 break;
+            case "View Food with Allergen":
+                viewAllergenFoodStock();
+                break;
         }
     }
 
@@ -39,8 +42,13 @@ public class AllergenController implements ActionListener {
             return;
         }
 
+        if (model.allergenExists(desc)) {
+            view.displayMessage("This allergen already exists!");
+            return;
+        }
+
         model.addAllergen(desc);
-        view.displayMessage("Allergen added successfully.");
+        view.displayMessage("Allergen added successfully!");
         view.clearDescriptionInput();
         refreshAllergenTable();
     }
@@ -70,13 +78,44 @@ public class AllergenController implements ActionListener {
             return;
         }
 
-        model.editAllergen(allergenId, newDesc.trim());
-        view.displayMessage("Allergen updated successfully.");
+        newDesc = newDesc.trim();
+
+        if (model.allergenExists(newDesc)) {
+            view.displayMessage("Another allergen with this description already exists!");
+            return;
+        }
+
+        model.editAllergen(allergenId, newDesc);
+        view.displayMessage("Allergen updated successfully!");
         refreshAllergenTable();
     }
 
     private void refreshAllergenTable() {
         List<String[]> allergens = model.listAllergensTable();
         view.setAllergenData(allergens);
+    }
+
+    public void viewAllergenFoodStock() {
+
+        int allergenId = view.getSelectedAllergenId();
+
+        if (allergenId < 0) {
+            view.displayMessage("Please select an allergen first.");
+            return;
+        }
+
+        List<String> foods = model.linkAllergensToFoodStock(allergenId);
+
+        if (foods.isEmpty()) {
+            view.displayLinkedFoods("No foods contain this allergen.");
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder("Foods containing this allergen:\n\n");
+        for (String f : foods) {
+            sb.append("• ").append(f).append("\n");
+        }
+
+        view.displayLinkedFoods(sb.toString());
     }
 }
