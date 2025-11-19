@@ -39,7 +39,7 @@ public class FoodStockController implements ActionListener {
         } else if (cmd.equals("Allergen")) {
             viewAllergens();
         }
-        else if (cmd.equals("Back")) {
+        else if (cmd.equals("Menu")) {
             handleBack();
         }
     }
@@ -162,3 +162,4 @@ public class FoodStockController implements ActionListener {
         SwingUtilities.getWindowAncestor(view).dispose(); // closes the current window/panel
     }
 }
+
