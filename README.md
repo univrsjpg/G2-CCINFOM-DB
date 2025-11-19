@@ -16,4 +16,5 @@
 
 ## Business Constraints:
 1. The app currently does not support automated animal-specific and food-specific allergy and allergen tracking. Everything must be manually input by the user.
-<br>2. 
+2. A new weight record can only be inserted once a day.
+3. If a food item is not present in the food_stock table, a record using it for food_intake cannot be made.
