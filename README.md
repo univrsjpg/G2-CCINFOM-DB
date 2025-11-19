@@ -1,5 +1,7 @@
-# G2-CCINFOM-DB
-<br> GROUP 2 - Chai, Gab, Coby, Ash
+# G2-CCINFOM-DB-APP
+<br> S13 GROUP 2 - Chelsea Dimaunahan, Jacoba Luna, Gabriel Salamida, Ashley Reyes
+<br>GITHUB LINK
+<br>https://github.com/univrsjpg/G2-CCINFOM-DB/tree/submission
 
 ## To create database:
 1. Please run 'pettracker-script-v2.sql' to get the schema and its data inserts.
@@ -16,3 +18,4 @@
 2. A new weight record can only be inserted once a day.
 3. If a food item is not present in the food_stock table, a record using it for food_intake cannot be made.
 4. Records to food_eaten define serving_size to be the amount of the food_item served in GRAMS. Likewise, the involved stock quantity is represented in grams.
+
