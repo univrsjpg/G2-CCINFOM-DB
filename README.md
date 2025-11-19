@@ -1,5 +1,7 @@
-# G2-CCINFOM-DB
-<br> GROUP 2 - Chai, Gab, Coby, Ash
+# G2-CCINFOM-DB-APP
+<br> S13 GROUP 2 - Chelsea Dimaunahan, Jacoba Luna, Gabriel Salamida, Ashley Reyes
+GITHUB LINK
+https://github.com/univrsjpg/G2-CCINFOM-DB/tree/submission
 
 ## To create database:
 1. Please run 'pettracker-script-v2.sql' to get the schema and its data inserts.
