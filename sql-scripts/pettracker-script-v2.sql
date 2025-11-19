@@ -234,4 +234,15 @@ INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 9);
 INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 1);
 
 -- WEIGHT -- 
-INSERT INTO weight_history (pet_name, species, gender, age) VALUES (?, ?, ?, ?)
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (1, 40, '2025-05-04');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (2, 98, '2025-08-06');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (3, 192, '2006-5-09');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (4, 56, '2001-10-03');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (5, 126, '2025-07-30');
+
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (1, 12, '2027-09-04');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (2, 65, '2029-09-06');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (3, 45, '2009-6-09');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (4, 200, '2012-11-03');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (5, 94, '2022-08-30');
+
