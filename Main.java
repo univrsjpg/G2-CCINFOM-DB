@@ -1,15 +1,28 @@
 import model.AllergenModel;
-import view.AllergenView;
 import controller.AllergenController;
+import view.AllergenView;
+
+import model.PetAllergenModel;
+import view.PetAllergenView;
+import controller.PetAllergenController;
 
 public class Main {
     public static void main(String[] args) {
 
         javax.swing.SwingUtilities.invokeLater(() -> {
-            AllergenView view = new AllergenView();         // create UI
-            AllergenModel model = new AllergenModel();      // connect to DB
-            new AllergenController(view, model);            // connect controller
-            view.setVisible(true);                       // show the window
+
+            int petId = 1; // temp for testing
+
+            PetAllergenModel paModel = new PetAllergenModel();
+            PetAllergenView paView = new PetAllergenView(null);
+            PetAllergenController paController =
+                    new PetAllergenController(paView, paModel);
+
+            AllergenView view = new AllergenView(petId);
+            AllergenModel model = new AllergenModel();
+            new AllergenController(view, model, paController);
+
+            view.setVisible(true);
         });
     }
 }
