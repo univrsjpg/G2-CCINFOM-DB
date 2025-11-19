@@ -12,9 +12,6 @@ import model.AddPetModel;
 import view.RemovePetView;
 import model.RemovePetModel;
 
-import view.AllergenView;
-import model.AllergenModel;
-
 import view.MainMenuView2;
 import model.MainMenuModel2;
 
@@ -53,7 +50,6 @@ public class MainMenuController1 implements ActionListener {
 				case "AddPet" -> addPet();
 				case "ViewStock" -> viewStock();
 				case "RemovePet" -> removePet();
-				case "ViewAllergens" -> viewAllergens();
 			}
 		}
 	}
@@ -89,16 +85,6 @@ public class MainMenuController1 implements ActionListener {
 		new FoodStockController(stockView, stockModel);
 
 		stockView.setVisible(true);
-	}
-
-	private void viewAllergens() {
-		view.dispose();
-
-		AllergenView allergenView = new AllergenView();
-		AllergenModel allergenModel = new AllergenModel();
-		new AllergenController(allergenView, allergenModel);
-
-		allergenView.setVisible(true);
 	}
 
 	// Allows the user to remove a pet.

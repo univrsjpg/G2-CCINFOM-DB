@@ -12,6 +12,11 @@ import model.PetInfoModel;
 import view.WeightView;
 import model.WeightModel;
 
+import view.AllergenView;
+import model.AllergenModel;
+import view.PetAllergenView;
+import model.PetAllergenModel;
+
 import java.awt.event.*;
 
 
@@ -71,6 +76,14 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows user to view allergen info
 	private void viewAllergies(int pet_id) {
+		view.dispose();
+
+		AllergenView allergyView = new AllergenView(pet_id);
+		AllergenModel allergyModel = new AllergenModel();
+		PetAllergenController pController = new PetAllergenController(new PetAllergenView(allergyView), new PetAllergenModel());
+		new AllergenController(allergyView, allergyModel, pController);
+
+		allergyView.setVisible(true);
 	}
 
 	// Allows user to go back to main menu1

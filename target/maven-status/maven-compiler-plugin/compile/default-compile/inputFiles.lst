@@ -5,6 +5,7 @@
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/WeightSubMenuController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/AllergenController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/MainMenuView1.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/PetAllergenController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/AllergenView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/WeightSubMenuView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/MainMenuView2.java
@@ -14,7 +15,9 @@
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/AddPetView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/RemovePetModel.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/AllergenModel.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/PetAllergenView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/AddPetModel.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/PetAllergenModel.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/MainMenuController1.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/AddPetController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/Main.java

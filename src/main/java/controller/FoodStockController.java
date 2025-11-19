@@ -4,6 +4,9 @@ import view.FoodStockView;
 import view.FoodAllergenDialog;
 import model.FoodStockModel;
 
+import view.MainMenuView1;
+import model.MainMenuModel1;
+
 import java.awt.Frame;
 import java.awt.event.*;
 import java.sql.Date;
@@ -39,7 +42,7 @@ public class FoodStockController implements ActionListener {
         } else if (cmd.equals("Allergen")) {
             viewAllergens();
         }
-        else if (cmd.equals("Back")) {
+        else if (cmd.equals("Menu")) {
             handleBack();
         }
     }
@@ -159,6 +162,13 @@ public class FoodStockController implements ActionListener {
     }
 
     private void handleBack() {
-        SwingUtilities.getWindowAncestor(view).dispose(); // closes the current window/panel
+        view.dispose();
+
+        MainMenuView1 menu1View = new MainMenuView1();
+        MainMenuModel1 menu1Model = new MainMenuModel1();
+        new MainMenuController1(menu1View, menu1Model);
+
+        menu1View.setVisible(true);
     }
 }
+
