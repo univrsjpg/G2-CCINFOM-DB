@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnector {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/pettracker";
     private static final String USER = "root";
-    private static final String PASSWORD = "DnDLSU_Help";
+    private static final String PASSWORD = "password";
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
