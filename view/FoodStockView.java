@@ -184,12 +184,14 @@ public class FoodStockView extends JFrame {
         refreshButton.addActionListener(l);
         editButton.addActionListener(l);
         allergenButton.addActionListener(l);
+        menuButton.addActionListener(l);
 
         addButton.setActionCommand("Add");
         removeButton.setActionCommand("Remove");
         refreshButton.setActionCommand("Refresh");
         editButton.setActionCommand("Edit");
         allergenButton.setActionCommand("Allergen");
+        menuButton.setActionCommand("Menu");
     }
     
     public String[] promptEditField() {
@@ -217,4 +219,5 @@ public class FoodStockView extends JFrame {
     }
 
 }
+
 
