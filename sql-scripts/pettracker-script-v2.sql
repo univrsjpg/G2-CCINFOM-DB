@@ -165,8 +165,19 @@ INSERT INTO food_stock
     (food_name, date_expiry, date_bought, cost, caloric_count, stock_qty)
 	VALUES ('Vitality Lamb & Beef Kibble', '2028-02-12', '2025-10-27', 1899, 380, 10000);
 
+-- FOOD EATEN --
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (1, 3, '2008-11-11 13:27:45', 5);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (2, 3, '2003-01-07 08:10:51', 4);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (3, 4, '2005-01-22 00:22:41', 3);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (2, 2, '2008-03-30 14:23:42', 2);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (1, 2, '2008-02-20 16:58:31', 1);
 
-INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (?, ?, ?, ?);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (1, 5, '2014-12-10 02:59:55', 1);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (2, 6, '2020-08-26 01:53:32', 2);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (3, 7, '2013-06-19 16:45:11', 3);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (2, 8, '2009-07-13 04:52:32', 4);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (4, 9, '2012-04-16 09:21:13', 5);
+
 -- ALLERGEN --
 INSERT INTO allergen (description) VALUES ('dairy');
 INSERT INTO allergen (description) VALUES ('chicken');
@@ -234,4 +245,14 @@ INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 9);
 INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 1);
 
 -- WEIGHT -- 
-INSERT INTO weight_history (pet_name, species, gender, age) VALUES (?, ?, ?, ?)
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (1, 40, '2025-05-04');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (2, 98, '2025-08-06');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (3, 192, '2006-5-09');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (4, 56, '2001-10-03');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (5, 126, '2025-07-30');
+
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (1, 12, '2027-09-04');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (2, 65, '2029-09-06');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (3, 45, '2009-6-09');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (4, 200, '2012-11-03');
+INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (5, 94, '2022-08-30');
