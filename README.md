@@ -15,3 +15,4 @@
 1. The app currently does not support automated animal-specific and food-specific allergy and allergen tracking. Everything must be manually input by the user.
 2. A new weight record can only be inserted once a day.
 3. If a food item is not present in the food_stock table, a record using it for food_intake cannot be made.
+4. Records to food_eaten define serving_size to be the amount of the food_item served in GRAMS. Likewise, the involved stock quantity is represented in grams.
