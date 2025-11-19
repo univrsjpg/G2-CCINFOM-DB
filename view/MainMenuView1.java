@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MainMenuView1 extends JFrame {
 	private JPanel petButtonPanel;
-	private JButton viewStockButton, addPetButton, removePetButton;
+	private JButton viewStockButton, addPetButton, removePetButton, allergenButton;
 
 	// Sets up the view for users.
 	public MainMenuView1() {
@@ -25,6 +25,9 @@ public class MainMenuView1 extends JFrame {
 		viewStockButton = new JButton("View Stock");
 		viewStockButton.setBackground(new Color(200,40,33));
 		viewStockButton.setForeground(new Color(255, 255, 245));
+		allergenButton = new JButton("View Allergens");
+		allergenButton.setBackground(new Color(32,117,111));
+		allergenButton.setForeground(new Color(255, 255, 245));
 		addPetButton = new JButton("Add New Pet");
 		addPetButton.setBackground(new Color (207, 172, 72));
 		addPetButton.setForeground(new Color(255, 255, 245));
@@ -85,8 +88,9 @@ public class MainMenuView1 extends JFrame {
 		petPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 		petPanel.setBackground(new Color(163,198,181));
 
-		JPanel actionPanel = new JPanel(new GridLayout(1, 3, 10, 10));
+		JPanel actionPanel = new JPanel(new GridLayout(1, 4, 10, 10));
 		actionPanel.add(viewStockButton);
+		actionPanel.add(allergenButton);
 		actionPanel.add(addPetButton);
 		actionPanel.add(removePetButton);
 		actionPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -114,10 +118,12 @@ public class MainMenuView1 extends JFrame {
 		}
 
 		viewStockButton.addActionListener(l);
+		allergenButton.addActionListener(l);
 		addPetButton.addActionListener(l);
 		removePetButton.addActionListener(l);
 
 		viewStockButton.setActionCommand("ViewStock");
+		allergenButton.setActionCommand("ViewAllergens");
 		addPetButton.setActionCommand("AddPet");
 		removePetButton.setActionCommand("RemovePet");
 	}

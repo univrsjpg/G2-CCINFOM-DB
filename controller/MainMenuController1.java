@@ -12,6 +12,9 @@ import model.AddPetModel;
 import view.RemovePetView;
 import model.RemovePetModel;
 
+import view.AllergenView;
+import model.AllergenModel;
+
 import view.MainMenuView2;
 import model.MainMenuModel2;
 
@@ -50,6 +53,7 @@ public class MainMenuController1 implements ActionListener {
 				case "AddPet" -> addPet();
 				case "ViewStock" -> viewStock();
 				case "RemovePet" -> removePet();
+				case "ViewAllergens" -> viewAllergens();
 			}
 		}
 	}
@@ -84,13 +88,17 @@ public class MainMenuController1 implements ActionListener {
 		FoodStockModel stockModel = new FoodStockModel();
 		new FoodStockController(stockView, stockModel);
 
-		/*
-		stockView.setLocationRelativeTo(view);
-		Point menuPos = view.getLocation();
-		stockView.setLocation(menuPos.x + 50, menuPos.y + 30);
-		*/
-
 		stockView.setVisible(true);
+	}
+
+	private void viewAllergens() {
+		view.dispose();
+
+		AllergenView allergenView = new AllergenView();
+		AllergenModel allergenModel = new AllergenModel();
+		new AllergenController(allergenView, allergenModel);
+
+		allergenView.setVisible(true);
 	}
 
 	// Allows the user to remove a pet.
