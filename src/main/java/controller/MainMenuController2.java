@@ -17,6 +17,9 @@ import model.AllergenModel;
 import view.PetAllergenView;
 import model.PetAllergenModel;
 
+import model.foodEatenModel;
+import view.foodEatenView;
+
 import java.awt.event.*;
 
 
@@ -72,6 +75,12 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows user to record pet intake
 	private void recordIntake(int pet_id) {
+		view.dispose();
+
+		foodEatenView intakeView = new foodEatenView();
+		new foodEatenController(intakeView, pet_id);
+
+		intakeView.setVisible(true);
 	}
 
 	// Allows user to view allergen info

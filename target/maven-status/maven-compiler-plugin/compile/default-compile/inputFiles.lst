@@ -7,6 +7,7 @@
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/MainMenuView1.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/PetAllergenController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/AllergenView.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/foodEatenController.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/WeightSubMenuView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/MainMenuView2.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/PetInfoController.java
@@ -14,6 +15,7 @@
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/EditPetModel.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/AddPetView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/RemovePetModel.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/foodEatenView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/AllergenModel.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/PetAllergenView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/AddPetModel.java
@@ -33,4 +35,5 @@
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/FoodStockView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/RemovePetView.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/controller/EditPetController.java
+/home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/model/foodEatenModel.java
 /home/workatron8000/Documents/Programming/CCINFOM/MCO-FoodStock/G2-CCINFOM-DB/src/main/java/view/EditPetView.java
