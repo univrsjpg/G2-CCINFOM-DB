@@ -1,5 +1,6 @@
 package model;
 
+import util.DBConnector;
 import java.util.ArrayList;
 import java.sql.*;              // SQL Functionality
 import java.time.*;             // Date Conversion,
@@ -10,7 +11,11 @@ public class WeightModel
 
     public WeightModel()
     {
-        petTracker = createConnection();
+        try {
+            petTracker = DBConnector.getConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -112,26 +117,5 @@ public class WeightModel
         private int petId;
         private double currWeight;
         private LocalDate date;
-    }
-
-    // reminder to change this for sql once it works out
-    private Connection createConnection() throws RuntimeException
-    {
-        Connection connection = null;
-        try {
-            // loading the JDBC Driver .. Change mariadb to mysql hyperlink when necessary
-            Class.forName("org.mariadb.jdbc.Driver");
-            System.out.println("driver loaded");
-
-            // this is for my laptop , change user and password args as needed ,
-            // also the jdbc:mariadb
-            connection = DriverManager.getConnection
-                    ("jdbc:mariadb://localhost/pettracker", "celia", "Myckelyn29");
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("It works!");
-        return connection;
     }
 }

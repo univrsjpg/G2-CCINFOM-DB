@@ -85,7 +85,7 @@ public class WeightController implements ActionListener
                 break;
 
             case "Back":
-                System.out.println("Back to main menu!");       // replace with backToMenu when merging
+                backToMenu();
                 break;
         }
     }
