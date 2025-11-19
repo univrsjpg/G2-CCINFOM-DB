@@ -12,7 +12,7 @@ public class FoodStockView extends JFrame {
     private DefaultListModel<String> foodListModel;
     private JList<String> foodList;
 
-    private JButton addButton, removeButton, refreshButton, editButton, allergenButton;
+    private JButton addButton, removeButton, refreshButton, editButton, allergenButton, menuButton;
     private JTextField nameField, expiryField, boughtField, costField, calField, qtyField;
     private JLabel totalCostLabel;
 
@@ -65,6 +65,10 @@ public class FoodStockView extends JFrame {
         allergenButton = new JButton("View Allergens");
         allergenButton.setBackground(new Color(200,40,33));
         allergenButton.setForeground(new Color(255, 255, 245));
+
+        menuButton = new JButton("Back to Menu");
+        menuButton.setBackground(new Color(32,117,111));
+        menuButton.setForeground(new Color(255, 255, 245));
 
         nameField = new JTextField(10);
         expiryField = new JTextField(10);
@@ -133,6 +137,7 @@ public class FoodStockView extends JFrame {
         buttonPanel.add(refreshButton);
         buttonPanel.add(editButton);   
         buttonPanel.add(allergenButton);
+        buttonPanel.add(menuButton);
 
         JPanel listPanel = new JPanel(new BorderLayout());
         listPanel.setBorder(BorderFactory.createTitledBorder("Current Food Stock"));
@@ -212,3 +217,4 @@ public class FoodStockView extends JFrame {
     }
 
 }
+
