@@ -113,7 +113,7 @@ SELECT*FROM allergen;
 SELECT*FROM food_allergen;
 SELECT*FROM food_eaten;
 SELECT*FROM pet;
-SELECT*FROM pet_allergy;
+SELECT*FROM pet_allergen;
 SELECT*FROM weight_history;
 
 -- -----------------------------------------------------
@@ -121,7 +121,7 @@ SELECT*FROM weight_history;
 -- -----------------------------------------------------
 
 -- PET --
-INSERT INTO pet (pet_name, species, gender, age, weight) VALUES ('Gab', 'dog', 'male', 3, 30);
+INSERT INTO pet (pet_name, species, gender, age) VALUES ('Gab', 'dog', 'male', 3);
 INSERT INTO pet (pet_name, species, gender, age) VALUES ('Chai', 'cat', 'female', 2);
 INSERT INTO pet (pet_name, species, gender, age) VALUES ('Ash', 'dog', 'male', 4);
 INSERT INTO pet (pet_name, species, gender, age) VALUES ('Coby', 'bird', 'female', 1);
@@ -166,7 +166,7 @@ INSERT INTO food_stock
 	VALUES ('Vitality Lamb & Beef Kibble', '2028-02-12', '2025-10-27', 1899, 380, 10000);
 
 
--- INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (?, ?, ?, ?);
+INSERT INTO food_eaten (pet_id, food_id, date_time, serving_size) VALUES (?, ?, ?, ?);
 -- ALLERGEN --
 INSERT INTO allergen (description) VALUES ('dairy');
 INSERT INTO allergen (description) VALUES ('chicken');
@@ -234,20 +234,4 @@ INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 9);
 INSERT INTO pet_allergy (pet_id, allergen_id) VALUES (10, 1);
 
 -- WEIGHT -- 
-INSERT INTO weight_history (pet_id, curr_weight, `date`) VALUES (1, 40, '2025-05-04')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO weight_history (pet_name, species, gender, age) VALUES (?, ?, ?, ?)
