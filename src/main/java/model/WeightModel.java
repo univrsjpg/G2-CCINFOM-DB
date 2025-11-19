@@ -79,19 +79,15 @@ public class WeightModel
 
     }
 
-    public void updateRecentWeight(double petWeight)
+    public void updateRecentWeight(double petWeight, int petId)
     {
-        String query = "INSERT INTO pet (weight) VALUES (?)";
+        String qry = "UPDATE pet SET weight = " + petWeight + " WHERE pet_id = " + petId;
 
-        try {
-            PreparedStatement statement = petTracker.prepareStatement(query);
-
-            statement.setDouble(1, petWeight);
-
-            statement.executeUpdate();
-            statement.close();
-
-        } catch (SQLException e) {
+        try (Connection conn = DBConnector.getConnection();
+             Statement stmt = conn.createStatement()) {
+            stmt.executeUpdate(qry);
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
     }

@@ -117,7 +117,7 @@ public class WeightController implements ActionListener
             double weight = subMenuModel.getWeight();
 
             model.recordWeight(petId, weight, LocalDate.of(year, month, day));          // updates weight_history
-            model.updateRecentWeight(weight);                                           // updates pet
+            model.updateRecentWeight(weight, petId);                                           // updates pet
             updateWeightSeries(weight, LocalDate.of(year, month, day));                 // updates graphs
         }
     }
