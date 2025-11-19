@@ -9,6 +9,9 @@ import model.MainMenuModel1;
 import view.PetInfoView;
 import model.PetInfoModel;
 
+import view.WeightView;
+import model.WeightModel;
+
 import java.awt.event.*;
 
 
@@ -42,7 +45,13 @@ public class MainMenuController2 implements ActionListener {
 
 	// Allows the user to view pet weight
 	private void viewWeight(int pet_id) {
-		
+		view.dispose();
+
+		WeightView weightView = new WeightView();
+		WeightModel weightModel = new WeightModel();
+		new WeightController(weightView, weightModel, pet_id);
+
+		weightView.setVisible(true);
 	}
 
 	// Allows user to view pet info

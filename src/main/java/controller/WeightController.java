@@ -5,6 +5,9 @@ import view.WeightView;
 import model.WeightSubMenuModel;
 import view.WeightSubMenuView;
 
+import model.MainMenuModel2;
+import view.MainMenuView2;
+
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.time.TimeSeries;
@@ -88,7 +91,13 @@ public class WeightController implements ActionListener
     }
 
     public void backToMenu() {
+        view.dispose();
 
+        MainMenuView2 menuView = new MainMenuView2();
+        MainMenuModel2 menuModel = new MainMenuModel2();
+        new MainMenuController2(menuView, menuModel, petId);
+
+        menuView.setVisible(true);
     }
 
     public void getWeightInput()
